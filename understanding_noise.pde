@@ -5,7 +5,7 @@
  */
 
 void setup() {
-    size(500, 300);
+    size(500, 350);
     background(0);
     noStroke();
     fill(255);
@@ -38,6 +38,15 @@ void noiseWorks() {
     for (int i = 0; i < width; i++) {
         ellipse(i, 255 - noise(i*0.01) * 255, 2, 2);
     }
+    
+    
+    pushStyle();
+    fill(255,0,0);
+    stroke(255,0,0);
+    strokeWeight(1);
+    line(150,255 - noise(150*0.01)*255,150,255);
+    text(noise(150*0.01),150,275);
+    popStyle();
     
     rectMode(CORNERS);
     rect(0,255,width,256);
