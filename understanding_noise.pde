@@ -48,8 +48,8 @@ void noiseWorks() {
     // 1D noise - samples a x-point value on the generated sequence
     //            smaller distance/time between successive x-points queries
     //            == closer values between queries (smoother)  
-    // 2D noise - samples a range between 2 x-points on the generated sequence
-    // 3D noise - samples a area between 2 x-points on the generated sequence
+    // 2D noise - generates a noise 'field' (x-y planes) sequence and samples a point (x,y) on the field and returns a value from 0.0 -1.0
+    // 3D noise - generates a noise sequence, x,y,z values
     for (int i = 0; i < width; i++) {
         ellipse(i, 255 - noise(i* resolutionFactor) * 255, 2, 2);
     }
@@ -72,15 +72,6 @@ void noiseWorks() {
     line(mouseX, 257 - noise(mouseX*resolutionFactor)*255, mouseX, 255);
     text(mouseX*resolutionFactor, mouseX, 275);
     text(noise(mouseX*resolutionFactor), mouseX, 300);
-    // + for 2D
-    line(mouseX + 50, 257 - noise((mouseX + 50)*resolutionFactor)*255, mouseX + 50, 255);
-    text((mouseX + 50)*resolutionFactor, mouseX + 50, 275);
-    text(noise((mouseX + 50)*resolutionFactor), mouseX + 50, 300);
-
-
-    text(noise(mouseX*resolutionFactor)-noise((mouseX + 50)*resolutionFactor), mouseX + 25, 325);
-
-    text(noise(mouseX*resolutionFactor, (mouseX + 50)*resolutionFactor), mouseX + 25, 345);
 
     popStyle();
 
